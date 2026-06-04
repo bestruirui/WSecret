@@ -1,0 +1,51 @@
+{
+  "name": "wsecret",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "pnpm run build && vite preview",
+    "deploy": "pnpm run build && pnpm run db:migrations:apply && wrangler deploy",
+    "cf-typegen": "wrangler types",
+    "secret": "wrangler secret  bulk .dev.vars",
+    "db:migrations:apply:local": "wrangler d1 migrations apply DB --local",
+    "db:migrations:apply": "wrangler d1 migrations apply DB --remote"
+  },
+  "dependencies": {
+    "@gravity-ui/icons": "^2.18.0",
+    "@heroui/react": "3.1.0",
+    "@heroui/styles": "3.1.0",
+    "@tanstack/react-query": "^5.100.14",
+    "@tanstack/react-virtual": "^3.13.25",
+    "@thesvg/react": "^3.0.10",
+    "clsx": "2.1.1",
+    "drizzle-orm": "^0.45.2",
+    "hono": "^4.12.23",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "zustand": "^5.0.13"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.38.0",
+    "@eslint/js": "^10.0.1",
+    "@tailwindcss/postcss": "4.1.11",
+    "@tailwindcss/vite": "4.1.11",
+    "@types/node": "^24.12.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.6.0",
+    "tailwind-variants": "3.2.2",
+    "tailwindcss": "4.1.11",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.59.2",
+    "vite": "^8.0.12",
+    "wrangler": "^4.94.0"
+  }
+}
